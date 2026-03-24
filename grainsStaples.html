@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fresh Mart | Grocery Store</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="w3-light-grey">
+
+<header class="main-header">
+
+    <!-- Empty left space (for proper centering) -->
+    <div class="header-left"></div>
+
+    <!-- Center Logo -->
+    <div class="logo-section">
+        <img src="images/logo.png" alt="Logo" class="logo">
+    </div>
+
+    <!-- Cart + User -->
+    <div class="header-right">
+
+        <!-- CART -->
+        <div class="cart-icon" onclick="goToCart()">
+            <img src="images/cart96.png" width="30px" alt="cart"/>
+            Cart
+            <span id="cartCount" class="cart-badge">0</span>
+        </div>
+
+        <!-- USER MENU -->
+        <div class="user-menu">
+
+            <div class="user-icon" onclick="toggleUserMenu()">
+                <img src="images/user96.png" width="30px" alt="User Account"/>
+                <span id="userName">Account</span>
+            </div>
+
+            <div class="user-dropdown" id="userDropdown">
+                <a href="login.html" id="loginBtn">Login</a>
+                <a href="signup.html" id="signupBtn">Signup</a>
+                <a href="#" onclick="goToOrders()" id="myorderBtn">My Orders</a>
+                <a href="#" onclick="goToEditProfile()" id="myprofileBtn">My Profile</a>
+                <button id="logoutBtn" onclick="logout()">Logout</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- Navigation -->
+<nav class="navbar">
+
+    <div class="nav-inner">
+
+        <!-- Hamburger -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            ☰ Menu
+        </div>
+
+        <!-- Mobile Icons -->
+        <div class="mobile-icons">
+
+            <div class="mobile-cart" onclick="goToCart()">
+                <img src="images/cart96.png" width="30px" alt="cart"/>
+                <span id="cartCount2" class="cart-badge">0</span>
+            </div>
+
+            <div class="mobile-user" onclick="toggleUserMenuMobile()">
+                <img src="images/user96.png" width="30px" alt="User Account"/>
+                <span id="userNameMobile">Account</span>
+            </div>
+
+            <div class="user-dropdown" id="userDropdownMobile">
+                <a href="login.html" id="loginBtnMobile">Login</a>
+                <a href="signup.html" id="signupBtnMobile">Signup</a>
+                <a href="#" onclick="goToOrders()" id="myorderBtnMobile">My Orders</a>
+                <a href="#" onclick="goToEditProfile()" id="myprofileBtnMobile">My Profile</a>
+                <button id="logoutBtnMobile" onclick="logout()">Logout</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Menu Links -->
+    <ul class="menu" id="mobileMenu">
+        <li><a href="index.html">Fruits</a></li>
+        <li><a href="vegetables.html">Vegetables</a></li>
+        <li><a href="dairy.html">Dairy</a></li>
+        <li><a href="grainsStaples.html">Grains & Staples</a></li>
+        <li><a href="spicesMasala.html">Spices & Masala</a></li>
+        <li><a href="beverages.html">Beverages</a></li>
+        <li><a href="snacksPackagedFood.html">Snacks & Packaged Food</a></li>
+        <li><a href="personalCare.html">Personal Care</a></li>
+        <li><a href="householdCleaning.html">Household & Cleaning</a></li>
+    </ul>
+
+</nav>
+
+<section class="w3-container w3-margin-top">
+<div class="product-grid">
+
+<!-- Whole Wheat Atta -->
+<div class="product-col">
+<div class="w3-card product-card">
+<div class="image-container">
+<img src="images/WholeWheatAtta.png">
+<span class="price-badge">₹350/5kg</span>
+<span class="stock-badge in-stock">In Stock</span>
+</div>
+
+<div class="product-info">
+<h4>Whole Wheat Atta <br>(5 kg)</h4>
+<p class="product-desc">High-quality, finely milled atta ideal for daily rotis and chapatis</p>
+
+<div class="quantity-box">
+<button onclick="decrease('qty1')">-</button>
+<span id="qty1">0</span>
+<button onclick="increase('qty1')">+</button>
+</div>
+
+<button class="add-btn" onclick="addToCart('Whole Wheat Atta (5 kg)',350,'qty1')">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+
+
+<!-- Sona Masoori Raw Rice -->
+<div class="product-col">
+<div class="w3-card product-card">
+<div class="image-container">
+<img src="images/SonaMasooriRawRice.png">
+<span class="price-badge">₹700/10kg</span>
+<span class="stock-badge in-stock">In Stock</span>
+</div>
+
+<div class="product-info">
+<h4>Sona Masoori Rice <br>(10 kg)</h4>
+<p class="product-desc">Light, aromatic rice with medium grains</p>
+
+<div class="quantity-box">
+<button onclick="decrease('qty2')">-</button>
+<span id="qty2">0</span>
+<button onclick="increase('qty2')">+</button>
+</div>
+
+<button class="add-btn" onclick="addToCart('Sona Masoori Raw Rice (10 kg)',700,'qty2')">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+
+
+<!-- Toor Dal (Arhar Dal) -->
+<div class="product-col">
+<div class="w3-card product-card out-of-stock">
+<div class="image-container">
+<img src="images/ToorDal.png">
+<span class="price-badge">₹700/5kg</span>
+<span class="stock-badge out-stock">Out of Stock</span>
+</div>
+
+<div class="product-info">
+<h4>Toor Dal <br/>(5 kg)</h4>
+<p class="product-desc">Split pigeon peas, rich in protein - a staple in Indian households</p>
+
+<div class="quantity-box">
+<button disabled>-</button>
+<span id="qty3">0</span>
+<button disabled>+</button>
+</div>
+
+<button class="add-btn" disabled>
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+
+
+<!-- Ragi (Finger Millet) (1 kg) -->
+<div class="product-col">
+<div class="w3-card product-card">
+<div class="image-container">
+<img src="images/Ragi.png">
+<span class="price-badge">₹80/kg</span>
+<span class="stock-badge in-stock">In Stock</span>
+</div>
+
+<div class="product-info">
+<h4>Ragi <br> (1 kg)</h4>
+<p class="product-desc">Gluten-free whole grain loaded with calcium and fiber</p>
+
+<div class="quantity-box">
+<button onclick="decrease('qty4')">-</button>
+<span id="qty4">0</span>
+<button onclick="increase('qty4')">+</button>
+</div>
+
+<button class="add-btn" onclick="addToCart('Ragi (Finger Millet) (1 kg)',80,'qty4')">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+
+
+<!-- Jowar (Sorghum) (1 kg) -->
+<div class="product-col">
+<div class="w3-card product-card">
+<div class="image-container">
+<img src="images/Jowar.png">
+<span class="price-badge">₹40/kg</span>
+<span class="stock-badge in-stock">In Stock</span>
+</div>
+
+<div class="product-info">
+<h4>Jowar (Sorghum) <br>(1 kg)</h4>
+<p class="product-desc">Nutritious millet rich in protein and dietary fiber</p>
+
+<div class="quantity-box">
+<button onclick="decrease('qty5')">-</button>
+<span id="qty5">0</span>
+<button onclick="increase('qty5')">+</button>
+</div>
+
+<button class="add-btn" onclick="addToCart('Jowar (Sorghum) (1 kg)',40,'qty5')">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-section">
+<h3>Fresh Mart</h3>
+<p>
+<a href="about.html">Fresh Mart</a> is your trusted online grocery store delivering fresh fruits,
+vegetables, dairy products, and daily household essentials directly to
+your doorstep at affordable prices.
+</p>
+<h4>Follow Us</h4>
+<div class="social-icons">
+
+<a href="https://facebook.com/freshmartproject" target="_blank">
+<img src="images/facebook96.png" alt="Facebook">
+</a>
+
+<a href="https://instagram.com/freshmartproject" target="_blank">
+<img src="images/instagram96.png" alt="Instagram">
+</a>
+
+<a href="https://youtube.com/freshmartproject" target="_blank">
+<img src="images/youtube96.png" alt="YouTube">
+</a>
+
+<a href="https://twitter.com/freshmartproject" target="_blank">
+<img src="images/twitter96.png" alt="Twitter">
+</a>
+
+</div>
+</div>
+
+<div class="footer-section">
+<h4>Visit Store</h4>
+<p class="footer-contact">
+<img src="images/location96.png" alt="Location">
+Fresh Mart, Karol Bagh, Delhi, India
+</p>
+<!-- Google Map -->
+    <div class="footer-map">
+        <iframe
+            src="https://www.google.com/maps?q=Karol+Bagh+Delhi&output=embed"
+            width="100%"
+            height="200"
+            style="border:0;"
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
+
+<div class="footer-section">
+<h4>Customer Support</h4>
+<p class="footer-contact">
+<img src="images/phone96.png" alt="Mobile">
++91 98765 43210
+</p>
+<p class="footer-contact">
+<img src="images/email96.png" alt="Email">
+support@freshmart.com
+</p>
+<p>
+<img src="images/write96.png" width="30" alt="Write to us">
+<a href="contact.html">Write to Us</a>
+</p>
+<p>
+<img src="images/clock96.png" width="30" alt="Store Hours">
+Mon - Sat : 8:00 AM - 9:00 PM
+</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<p>© 2026 Fresh Mart - Grocery Store | All Rights Reserved</p>
+</div>
+
+</footer>
+<!-- FOOTER END -->
+
+<script src="js/account.js"></script>
+<script>
+checkLogin();
+</script>
+<script src="js/script.js"></script>
+</body>
+</html>

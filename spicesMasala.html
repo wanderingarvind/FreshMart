@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fresh Mart | Grocery Store</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="w3-light-grey">
+
+<header class="main-header">
+
+    <!-- Empty left space (for proper centering) -->
+    <div class="header-left"></div>
+
+    <!-- Center Logo -->
+    <div class="logo-section">
+        <img src="images/logo.png" alt="Logo" class="logo">
+    </div>
+
+    <!-- Cart + User -->
+    <div class="header-right">
+
+        <!-- CART -->
+        <div class="cart-icon" onclick="goToCart()">
+            <img src="images/cart96.png" width="30px" alt="cart"/>
+            Cart
+            <span id="cartCount" class="cart-badge">0</span>
+        </div>
+
+        <!-- USER MENU -->
+        <div class="user-menu">
+
+            <div class="user-icon" onclick="toggleUserMenu()">
+                <img src="images/user96.png" width="30px" alt="User Account"/>
+                <span id="userName">Account</span>
+            </div>
+
+            <div class="user-dropdown" id="userDropdown">
+                <a href="login.html" id="loginBtn">Login</a>
+                <a href="signup.html" id="signupBtn">Signup</a>
+                <a href="#" onclick="goToOrders()" id="myorderBtn">My Orders</a>
+                <a href="#" onclick="goToEditProfile()" id="myprofileBtn">My Profile</a>
+                <button id="logoutBtn" onclick="logout()">Logout</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- Navigation -->
+<nav class="navbar">
+
+    <div class="nav-inner">
+
+        <!-- Hamburger -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            ☰ Menu
+        </div>
+
+        <!-- Mobile Icons -->
+        <div class="mobile-icons">
+
+            <div class="mobile-cart" onclick="goToCart()">
+                <img src="images/cart96.png" width="30px" alt="cart"/>
+                <span id="cartCount2" class="cart-badge">0</span>
+            </div>
+
+            <div class="mobile-user" onclick="toggleUserMenuMobile()">
+                <img src="images/user96.png" width="30px" alt="User Account"/>
+                <span id="userNameMobile">Account</span>
+            </div>
+
+            <div class="user-dropdown" id="userDropdownMobile">
+                <a href="login.html" id="loginBtnMobile">Login</a>
+                <a href="signup.html" id="signupBtnMobile">Signup</a>
+                <a href="#" onclick="goToOrders()" id="myorderBtnMobile">My Orders</a>
+                <a href="#" onclick="goToEditProfile()" id="myprofileBtnMobile">My Profile</a>
+                <button id="logoutBtnMobile" onclick="logout()">Logout</button>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Menu Links -->
+    <ul class="menu" id="mobileMenu">
+        <li><a href="index.html">Fruits</a></li>
+        <li><a href="vegetables.html">Vegetables</a></li>
+        <li><a href="dairy.html">Dairy</a></li>
+        <li><a href="grainsStaples.html">Grains & Staples</a></li>
+        <li><a href="spicesMasala.html">Spices & Masala</a></li>
+        <li><a href="beverages.html">Beverages</a></li>
+        <li><a href="snacksPackagedFood.html">Snacks & Packaged Food</a></li>
+        <li><a href="personalCare.html">Personal Care</a></li>
+        <li><a href="householdCleaning.html">Household & Cleaning</a></li>
+    </ul>
+
+</nav>
+
+<section class="w3-container w3-margin-top">
+<div class="product-grid">
+
+<!-- Turmeric Powder (Haldi) – 200g -->
+<div class="product-col">
+<div class="w3-card product-card">
+<div class="image-container">
+<img src="images/TurmericPowder.png">
+<span class="price-badge">₹48/0.2kg</span>
+<span class="stock-badge in-stock">In Stock</span>
+</div>
+
+<div class="product-info">
+<h4>Turmeric Powder <br>(200 g)</h4>
+<p class="product-desc">Premium-quality finely ground turmeric with strong aroma</p>
+
+<div class="quantity-box">
+<button onclick="decrease('qty1')">-</button>
+<span id="qty1">0</span>
+<button onclick="increase('qty1')">+</button>
+</div>
+
+<button class="add-btn" onclick="addToCart('Turmeric Powder (200 g)',48,'qty1')">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+
+
+<!-- Red Chilli Powder -->
+<div class="product-col">
+<div class="w3-card product-card">
+<div class="image-container">
+<img src="images/RedChilliPowder.png">
+<span class="price-badge">₹72/0.2kg</span>
+<span class="stock-badge in-stock">In Stock</span>
+</div>
+
+<div class="product-info">
+<h4>Red Chilli Powder <br>(200 g)</h4>
+<p class="product-desc">Bright red chilli powder made from sun-dried chillies</p>
+
+<div class="quantity-box">
+<button onclick="decrease('qty2')">-</button>
+<span id="qty2">0</span>
+<button onclick="increase('qty2')">+</button>
+</div>
+
+<button class="add-btn" onclick="addToCart('Red Chilli Powder (200 g)',72,'qty2')">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+
+
+<!-- Coriander Powder -->
+<div class="product-col">
+<div class="w3-card product-card out-of-stock">
+<div class="image-container">
+<img src="images/CorianderPowder.png">
+<span class="price-badge">₹55/0.2kg</span>
+<span class="stock-badge out-stock">Out of Stock</span>
+</div>
+
+<div class="product-info">
+<h4>Coriander Powder <br/>(200 g)</h4>
+<p class="product-desc">Freshly ground coriander seeds with mild citrus flavor</p>
+
+<div class="quantity-box">
+<button disabled>-</button>
+<span id="qty3">0</span>
+<button disabled>+</button>
+</div>
+
+<button class="add-btn" disabled>
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+
+
+<!-- Garam Masala -->
+<div class="product-col">
+<div class="w3-card product-card">
+<div class="image-container">
+<img src="images/GaramMasala.png">
+<span class="price-badge">₹85/0.1kg</span>
+<span class="stock-badge in-stock">In Stock</span>
+</div>
+
+<div class="product-info">
+<h4>Garam Masala <br> (100 g)</h4>
+<p class="product-desc">Aromatic blend of premium Indian spices.</p>
+
+<div class="quantity-box">
+<button onclick="decrease('qty4')">-</button>
+<span id="qty4">0</span>
+<button onclick="increase('qty4')">+</button>
+</div>
+
+<button class="add-btn" onclick="addToCart('Garam Masala (100 g)',85,'qty4')">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+
+
+<!-- Cumin Seeds -->
+<div class="product-col">
+<div class="w3-card product-card">
+<div class="image-container">
+<img src="images/CuminSeeds.png">
+<span class="price-badge">₹110/0.2kg</span>
+<span class="stock-badge in-stock">In Stock</span>
+</div>
+
+<div class="product-info">
+<h4>Cumin Seeds <br>(200 g)</h4>
+<p class="product-desc">Whole cumin seeds with strong earthy aroma</p>
+
+<div class="quantity-box">
+<button onclick="decrease('qty5')">-</button>
+<span id="qty5">0</span>
+<button onclick="increase('qty5')">+</button>
+</div>
+
+<button class="add-btn" onclick="addToCart('Cumin Seeds (200 g)',110,'qty5')">
+Add to Cart
+</button>
+</div>
+</div>
+</div>
+
+
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-section">
+<h3>Fresh Mart</h3>
+<p>
+<a href="about.html">Fresh Mart</a> is your trusted online grocery store delivering fresh fruits,
+vegetables, dairy products, and daily household essentials directly to
+your doorstep at affordable prices.
+</p>
+<h4>Follow Us</h4>
+<div class="social-icons">
+
+<a href="https://facebook.com/freshmartproject" target="_blank">
+<img src="images/facebook96.png" alt="Facebook">
+</a>
+
+<a href="https://instagram.com/freshmartproject" target="_blank">
+<img src="images/instagram96.png" alt="Instagram">
+</a>
+
+<a href="https://youtube.com/freshmartproject" target="_blank">
+<img src="images/youtube96.png" alt="YouTube">
+</a>
+
+<a href="https://twitter.com/freshmartproject" target="_blank">
+<img src="images/twitter96.png" alt="Twitter">
+</a>
+
+</div>
+</div>
+
+<div class="footer-section">
+<h4>Visit Store</h4>
+<p class="footer-contact">
+<img src="images/location96.png" alt="Location">
+Fresh Mart, Karol Bagh, Delhi, India
+</p>
+<!-- Google Map -->
+    <div class="footer-map">
+        <iframe
+            src="https://www.google.com/maps?q=Karol+Bagh+Delhi&output=embed"
+            width="100%"
+            height="200"
+            style="border:0;"
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
+
+<div class="footer-section">
+<h4>Customer Support</h4>
+<p class="footer-contact">
+<img src="images/phone96.png" alt="Mobile">
++91 98765 43210
+</p>
+<p class="footer-contact">
+<img src="images/email96.png" alt="Email">
+support@freshmart.com
+</p>
+<p>
+<img src="images/write96.png" width="30" alt="Write to us">
+<a href="contact.html">Write to Us</a>
+</p>
+<p>
+<img src="images/clock96.png" width="30" alt="Store Hours">
+Mon - Sat : 8:00 AM - 9:00 PM
+</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<p>© 2026 Fresh Mart - Grocery Store | All Rights Reserved</p>
+</div>
+
+</footer>
+<!-- FOOTER END -->
+
+<script src="js/account.js"></script>
+<script>
+checkLogin();
+</script>
+<script src="js/script.js"></script>
+</body>
+</html>

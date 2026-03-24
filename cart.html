@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cart Review</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="w3-light-grey">
+
+<header class="main-header">
+
+    <!-- Empty left space (for proper centering) -->
+    <div class="header-left"></div>
+
+    <!-- Center Logo -->
+    <div class="logo-section">
+        <img src="images/logo.png" alt="Logo" class="logo">
+    </div>
+
+   <div class="cart-icon" onclick="goBack()">
+    ← Back to Store
+</div>
+
+
+</header>
+
+<!-- Navigation -->
+<nav class="navbar">
+
+    <div class="nav-inner">
+
+        <!-- Left: Hamburger -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            ☰ Menu
+        </div>
+
+        <div class="mobile-cart" onclick="goBack()">← Back to Store</div>
+
+        <!-- Right: Cart (Mobile Only) -->
+        <!-- <div class="mobile-cart" onclick="goToCart()">
+            <img src="images/cart96.png" width="30px" alt="cart"/>
+            <span id="cartCount2" class="cart-badge">0</span>
+        </div> -->
+
+    </div>
+
+    <!-- Menu Links -->
+    <ul class="menu" id="mobileMenu">
+        <li><a href="index.html">Fruits</a></li>
+        <li><a href="vegetables.html">Vegetables</a></li>
+        <li><a href="dairy.html">Dairy</a></li>
+        <li><a href="grainsStaples.html">Grains & Staples</a></li>
+        <li><a href="spicesMasala.html">Spices & Masala</a></li>
+        <li><a href="beverages.html">Beverages</a></li>
+        <li><a href="snacksPackagedFood.html">Snacks & Packaged Food</a></li>
+        <li><a href="personalCare.html">Personal Care</a></li>
+        <li><a href="householdCleaning.html">Household & Cleaning</a></li>
+    </ul>
+
+</nav>
+
+<div class="mycontainer">
+
+<h2>Shopping Cart Review</h2>
+
+<div class="w3-responsive">
+<table class="cart-table">
+<thead>
+<tr>
+<th>Product</th>
+<th>Price x Qty</th>
+<!-- <th>Qty</th> -->
+<th>Total</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="cart-body"></tbody>
+<tfoot>
+<tr>
+<td colspan="2">Subtotal</td>
+<td id="subtotal">₹0.00</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2">GST (5%)</td>
+<td id="tax">₹0.00</td>
+<td></td>
+</tr>
+<tr>
+<td colspan="2">Total Amount</td>
+<td id="grand-total">₹0.00</td>
+<td></td>
+</tr>
+</tfoot>
+</table>
+</div>
+
+</div>
+
+<!-- ===============================
+    Payment Method SECTION
+================================= -->
+
+<div class="mycontainer">
+
+<h3>Select Payment Method</h3>
+
+<label>
+<input type="radio" name="payment" value="COD" onclick="showPaymentSection()" checked>
+Cash on Delivery
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="payment" value="UPI" onclick="showPaymentSection()">
+UPI
+</label>
+
+<br><br>
+
+<label>
+<input type="radio" name="payment" value="CARD" onclick="showPaymentSection()">
+Credit / Debit Card
+</label>
+
+
+<!-- ================= COD ADDRESS ================= -->
+
+<div id="codSection" class="payment-section">
+</div>
+
+
+<!-- ================= UPI PAYMENT ================= -->
+
+<div id="upiSection" class="payment-section" style="display:none">
+
+<h4>Scan QR to Pay</h4>
+
+<img src="images/dummyQR96.png" width="96">
+
+<p id="upiTimer">Payment auto verification in 10 sec</p>
+
+</div>
+
+
+<!-- ================= CARD PAYMENT ================= -->
+
+<div id="cardSection" class="payment-section" style="display:none">
+
+<h4>Card Details</h4>
+
+<input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" class="w3-input w3-border"><br>
+
+<input type="text" id="cardName" placeholder="Card Holder Name" class="w3-input w3-border"><br>
+
+<input type="text" id="cardExpiry" placeholder="Expiry MM/YY" class="w3-input w3-border"><br>
+
+<input type="text" id="cardCVV" placeholder="CVV" class="w3-input w3-border">
+<br>
+</div>
+    
+</div>
+
+<!-- ===============================
+    Order SECTION
+================================= -->
+
+<div class="mycontainer">
+    <h3>Delivery Address</h3>
+    <p id="deliveryAddress"></p>
+
+    <button class="blue-btn" onclick="goToEditProfile()">
+        Edit Address
+    </button>
+
+    <button id="placeOrderBtn" class="add-btn w3-margin-left" onclick="finishOrder()">
+       Place Order
+    </button>
+   
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-section">
+<h3>Fresh Mart</h3>
+<p>
+<a href="about.html">Fresh Mart</a> is your trusted online grocery store delivering fresh fruits,
+vegetables, dairy products, and daily household essentials directly to
+your doorstep at affordable prices.
+</p>
+<h4>Follow Us</h4>
+<div class="social-icons">
+
+<a href="https://facebook.com/freshmartproject" target="_blank">
+<img src="images/facebook96.png" alt="Facebook">
+</a>
+
+<a href="https://instagram.com/freshmartproject" target="_blank">
+<img src="images/instagram96.png" alt="Instagram">
+</a>
+
+<a href="https://youtube.com/freshmartproject" target="_blank">
+<img src="images/youtube96.png" alt="YouTube">
+</a>
+
+<a href="https://twitter.com/freshmartproject" target="_blank">
+<img src="images/twitter96.png" alt="Twitter">
+</a>
+
+</div>
+</div>
+
+<div class="footer-section">
+<h4>Visit Store</h4>
+<p class="footer-contact">
+<img src="images/location96.png" alt="Location">
+Fresh Mart, Karol Bagh, Delhi, India
+</p>
+<!-- Google Map -->
+    <div class="footer-map">
+        <iframe
+            src="https://www.google.com/maps?q=Karol+Bagh+Delhi&output=embed"
+            width="100%"
+            height="200"
+            style="border:0;"
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
+
+<div class="footer-section">
+<h4>Customer Support</h4>
+<p class="footer-contact">
+<img src="images/phone96.png" alt="Mobile">
++91 98765 43210
+</p>
+<p class="footer-contact">
+<img src="images/email96.png" alt="Email">
+support@freshmart.com
+</p>
+<p>
+<img src="images/write96.png" width="30" alt="Write to us">
+<a href="contact.html">Write to Us</a>
+</p>
+<p>
+<img src="images/clock96.png" width="30" alt="Store Hours">
+Mon - Sat : 8:00 AM - 9:00 PM
+</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<p>© 2026 Fresh Mart - Grocery Store | All Rights Reserved</p>
+</div>
+
+</footer>
+<!-- FOOTER END -->
+
+<script src="js/cart.js"></script>
+</body>
+</html>
+
+
