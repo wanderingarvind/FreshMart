@@ -1,0 +1,1035 @@
+/* =====================================================
+   1. GLOBAL / GENERAL STYLING
+===================================================== */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+h1,
+h2,
+h3 {
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 36px;
+}
+h2 {
+    font-size: 28px;
+}
+h3 {
+    font-size: 22px;
+}
+/* Buttons (default behaviour) */
+
+button {
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:disabled {
+    background-color: #ccc !important;
+    cursor: not-allowed;
+}
+
+/* Tables */
+
+table th,
+table td {
+    text-align: center;
+    padding: 10px;
+}
+
+
+/* =====================================================
+   2. HEADER SECTION
+===================================================== */
+
+.main-header {
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 40px;
+    position: relative;
+}
+
+/* Left blank space (same width as cart) */
+
+.header-left {
+    width: 120px;
+}
+
+/* Center logo */
+
+.logo-section {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo {
+    height: 200px;
+    width: auto;
+    display: block;
+}
+
+/* Cart icon */
+
+.cart-icon {
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+}
+
+.cart-badge {
+    background: black;
+    color: white;
+    font-size: 12px;
+    padding: 3px 7px;
+    border-radius: 50px;
+    margin-left: 6px;
+}
+
+
+/* =========================
+AUTH (LOGIN / SIGNUP) UNDER CART
+========================= */
+
+/* HEADER RIGHT SECTION */
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* USER MENU */
+
+.user-menu {
+    position: relative;
+}
+
+.user-icon {
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* DROPDOWN */
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 8px;
+    background: white;
+    min-width: 120px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.user-dropdown a,
+.user-dropdown button {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    background: white;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+}
+
+.user-dropdown a:hover,
+.user-dropdown button:hover {
+    background: #f2f2f2;
+}
+
+.user-dropdown.show {
+    display: block;
+}
+
+
+.mobile-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.mobile-user {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#userDropdownMobile {
+    position: absolute;
+    right: 0;
+    top: 40px;
+}
+
+
+
+/* =====================================================
+   3. NAVIGATION MENU
+===================================================== */
+
+.navbar {
+    background-color: #2e7d32;
+}
+
+/* Desktop Menu */
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu li a {
+    display: block;
+    padding: 14px 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.menu li a:hover {
+    background-color: #1b5e20;
+}
+
+.menu li a.active {
+    background-color: #1b5e20;
+    font-weight: bold;
+    border-bottom: 3px solid #000;
+}
+
+/* Hide mobile top bar on desktop */
+
+.nav-inner {
+    display: none;
+}
+
+/* Hide hamburger by default */
+
+.menu-toggle {
+    display: none;
+}
+
+/* =====================================================
+   4. PRODUCT GRID
+===================================================== */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-col {
+    width: 100%;
+}
+
+
+
+/* =====================================================
+   5. PRODUCT CARD
+===================================================== */
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+
+/* Product Image */
+
+.image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #f9f9f9;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.image-container img {
+    width: 85%;
+    height: 85%;
+    object-fit: contain;
+}
+
+/* Price badge */
+
+.price-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #4CAF50;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* Stock badge */
+
+.stock-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: white;
+}
+
+.in-stock {
+    background-color: #4CAF50;
+}
+
+.out-stock {
+    background-color: #f44336;
+}
+
+
+/* Product info */
+
+.product-info {
+    padding: 12px;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.product-info h4 {
+    min-height: 48px;
+}
+
+.product-desc {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+
+
+/* ===============================
+   DULL IMAGE FOR OUT OF STOCK
+================================= */
+
+.product-card.out-of-stock .image-container img {
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+.product-card.out-of-stock .price-badge {
+    background-color: #999 !important;
+    opacity: 0.6;
+}
+
+
+
+/* =====================================================
+   6. QUANTITY SECTION
+===================================================== */
+
+.quantity-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.quantity-box button {
+    padding: 6px 14px;
+    margin: 0 8px;
+    border: none;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+
+
+/* =====================================================
+   7. BUTTON TYPES
+===================================================== */
+
+.add-btn {
+    margin-top: auto;
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.remove-btn {
+    background: #f44336;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+}
+
+.blue-btn {
+    margin-top: auto;
+    padding: 10px 20px;
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+
+/* =====================================================
+   8. CART TABLE
+===================================================== */
+.cart-table {
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    font-size: 16px;
+}
+.cart-table tbody tr:nth-child(even){
+background:#f1f1f1;
+}
+/* .cart-table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background: white;
+} */
+
+.cart-table thead {
+    background: #4CAF50;
+    color: white;
+}
+
+.cart-table th,
+.cart-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+/* Cart table body background */
+.cart-table tbody{
+background:#f9f9f9;
+}
+
+/* Cart table footer background */
+.cart-table tfoot{
+background:#e8f5e9;
+font-weight:bold;
+}
+.cart-table tfoot td{
+border-top:2px solid #ccc;
+}
+
+/* =====================================================
+   9. CHECKOUT SECTION
+===================================================== */
+.checkout-section {
+    max-width: 1200px;
+    width: 100%;
+    margin: 30px auto;
+}
+/* 
+.checkout-section {
+    width: 90%;
+    margin: 30px auto;
+} */
+
+.checkout-section select {
+    padding: 8px;
+    width: 250px;
+}
+
+.payment-section{
+margin-top:10px;
+padding:15px;
+background:#fff;
+border-radius:6px;
+}
+
+
+
+
+
+
+
+/* =====================================================
+   10. OTHER PAGES + INVOICE BOX
+===================================================== */
+
+.mycontainer {
+    width: 90%;
+    margin: 40px auto;
+    background: white;
+    padding: 25px;
+
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+
+.container-text-align {
+    text-align: center;
+}
+
+.bill-details {
+    text-align: right;
+    /* margin-top: 20px; */
+}
+.invoice-header-info{
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+flex-wrap:wrap;
+/* border-bottom:1px solid #ddd;
+padding-bottom:10px; */
+}
+
+.invoice-left,
+.invoice-right,
+.invoice-bottom{
+font-size:15px;
+}
+
+.invoice-right{
+text-align:right;
+}
+
+.invoice-bottom{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+flex-wrap:wrap;
+/* border-top:1px solid #ddd;
+padding-top:15px; */
+}
+
+.payment-info{
+font-size:15px;
+}
+
+.status-processing{
+color: orange;
+font-weight: bold;
+}
+
+.status-delivered{
+color: green;
+font-weight: bold;
+}
+
+/* ======================================
+   PRINT ONLY INVOICE BOX
+====================================== */
+
+.print-only {
+    display: none;
+}
+
+@media print {
+
+body{
+margin:0;
+padding:0;
+}
+    body * {
+        visibility: hidden;
+    }
+
+    .mycontainer,
+    .mycontainer * {
+        visibility: visible;
+    }
+
+.mycontainer{
+width:100%;
+margin:0;
+padding:0;
+background:none;
+box-shadow:none;
+}
+
+    .mycontainer{
+position:absolute;
+left:0;
+top:0;
+width:100%;
+margin:0;
+padding:0;
+}
+
+footer,
+header,
+.navbar,
+#printBtn{
+display:none !important;
+}
+
+.cart-table th {
+    background:  none;
+    color: black;
+}
+
+    .print-only {
+        display: block !important;
+        text-align: center;
+        /* margin-bottom: 15px; */
+    }
+
+    /* #printBtn {
+        display: none !important;
+    } */
+
+}
+
+
+
+/* =====================================================
+   11. FOOTER
+===================================================== */
+
+.footer {
+    background-color: #1b5e20;
+    color: white;
+    padding: 40px 0 0 0;
+    margin-top: 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    /* padding:0 16px; */
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+    margin: 20px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 15px;
+    color: #a5d6a7;
+}
+
+.footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-section a:hover{
+color:#a5d6a7;
+}
+.footer-section p img{
+width:20px;
+vertical-align:middle;
+margin-right:8px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 15px;
+    background-color: #145a18;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.footer-map{
+margin-top:10px;
+border-radius:6px;
+overflow:hidden;
+}
+.footer-map iframe{
+height:180px;
+}
+
+
+.social-icons{
+display:flex;
+gap:12px;
+margin-top:10px;
+}
+
+.social-icons img{
+width:28px;
+height:28px;
+transition:transform 0.2s ease;
+cursor:pointer;
+}
+
+.social-icons img:hover{
+transform:scale(1.2);
+}
+/* =====================================================
+   12. FORMS (LOGIN / SIGNUP)
+===================================================== */
+
+.auth-container {
+    width: 100%;
+    max-width: 420px;
+    margin: 20px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #2e7d32;
+}
+
+/* FORM GROUP */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+/* LABEL */
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/* INPUT */
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 4px rgba(76,175,80,0.4);
+}
+
+/* SUBMIT BUTTON */
+
+.auth-btn-submit {
+    width: 100%;
+    padding: 11px;
+    border: none;
+    border-radius: 6px;
+    background: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.auth-btn-submit:hover {
+    background: #388e3c;
+}
+
+/* LINKS */
+
+.auth-links {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.auth-links a {
+    color: #2e7d32;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* =====================================================
+   13. RESPONSIVE
+===================================================== */
+@media (min-width: 1100px) and (max-width: 1230px) {
+    .menu li a {
+        font-size: 14px;
+        padding: 12px 14px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1100px) {
+    .menu li a {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+}
+/* ================= TABLET ================= */
+/* Targets tablets landscape and small laptops */
+@media (max-width: 992px) {
+h1 {
+    font-size: 32px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 20px;
+}
+    .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 15px;
+        background-color: #2e7d32;
+    }
+
+    .menu-toggle {
+        display: block;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .mobile-cart {
+        display: block;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #2e7d32;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .menu li {
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .main-header .cart-icon {
+        display: none;
+    }
+    .main-header {
+        padding: 20px 10px;
+        flex-direction: column;
+    }
+
+    .logo-section {
+        position: static;
+        transform: none;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .mobile-icons {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .user-icon {
+        display: none;
+    }
+.mobile-user {
+    font-size: 18px;
+}
+.cart-table{
+    font-size: 14px;
+}
+.invoice-left,
+.invoice-right,
+.invoice-bottom{
+font-size:14px;
+}
+}
+
+/* Targets Tablets (portrait) and large phones. */
+@media (max-width: 768px) {
+.product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+    .main-header {
+        padding: 15px 7px;
+        flex-direction: column;
+    }
+
+    .logo-section {
+        position: static;
+        transform: none;
+    }
+
+    .cart-icon {
+        display: none;
+    }
+
+.footer-container{
+flex-direction:column;
+text-align:center;
+}
+
+.social-icons{
+justify-content:center;
+}
+.menu-toggle {
+        font-size: 16px;
+    }
+.mobile-cart {
+    font-size: 16px;
+}
+.mobile-user {
+    font-size: 16px;
+}
+.cart-table{
+    font-size: 12px;
+}
+.invoice-left,
+.invoice-right,
+.invoice-bottom{
+font-size:13px;
+}
+}
+
+/* ================= MOBILE Only================= */
+/* Targets small mobile phones */
+
+@media (max-width: 576px) {
+h1 {
+    font-size: 26px;
+}
+h2 {
+    font-size: 22px;
+}
+h3 {
+    font-size: 18px;
+}    
+    .main-header {
+        padding: 10px 5px;
+        flex-direction: column;
+    }
+
+    .logo-section {
+        position: static;
+        transform: none;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .user-icon {
+        display: none;
+    }
+
+.invoice-header-info{
+flex-direction:column;
+gap:10px;
+}
+.invoice-right{
+text-align:left;
+}
+.invoice-bottom{
+flex-direction:column;
+gap:10px;
+}
+.bill-details{
+text-align:left;
+}
+.menu-toggle {
+        font-size: 14px;
+    }
+.mobile-cart {
+    font-size: 14px;
+}
+.mobile-user {
+    font-size: 14px;
+}
+.cart-table{
+    font-size: 10px;
+}
+.invoice-left,
+.invoice-right,
+.invoice-bottom{
+font-size:12px;
+}
+}
